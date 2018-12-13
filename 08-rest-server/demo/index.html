@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CORS Demo</title>
+</head>
+<body>
+<main>
+  <h1>CORS Demo</h1>
+
+  <p>
+    This file brings in jQuery and then tries to hit your restful API.  If you have installed the cors middleware in your server and gave it no parameters, then in your browser console, you should see data from your API.  If you give it a parameter that sets the origin to some domain that is not the same as the one you've installed this index.html file on ... you should get an Access Control error in your console.
+  </p>
+  <p>
+    <strong>Welcome to CORS.</strong>
+  </p>
+
+  <ul>
+    <li>Edit this file, changing the URL in the script tag below to point to the public IP/Port for your API Server </li>
+    <li>Upload this to a live web server, like ghpages, or your own domain.</li>
+  </ul>
+
+</main>
+</body>
+<script src="http://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+  let URL = 'http://172.16.0.66:3000/api/v1/notes';
+  $.getJSON(URL)
+  .then(data => console.log('Got Remote Data: ', data) )
+  .catch(err => console.error('Got Remote Error: ', err));
+</script>
+</html>

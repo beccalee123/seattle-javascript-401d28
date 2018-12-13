@@ -1,0 +1,20 @@
+{
+  "categories": [
+    {
+      "name": "Pets",
+      "_id": 3
+    },
+    {
+      "name": "Things",
+      "_id": 4
+    }
+  ],
+  "products": [
+    {
+      "_id": 1,
+      "category": "Electronics",
+      "name": "Radio",
+      "price": 15.99
+    }
+  ]
+}

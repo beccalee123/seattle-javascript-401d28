@@ -1,0 +1,35 @@
+<% articles.results.forEach( article => { %>
+    <p>
+        <a href="/article/<%= article._id %>"><%= article.title %></a>
+    </p>
+<% }) %>
+
+<% if(article) { %>
+    <h3><%= article.title %></h3>
+    <p><%= article.article %></p>
+    <ul>
+        <% article.comments.forEach( comment => { %>
+            <p>
+                <%= comment.text %>
+            </p>
+        <% }) %>
+    </ul>
+    <form method="post" action="/article/<%= article._id %>">
+        <input type="hidden" name="_method" value="patch" />
+        <input type="hidden" name="_id" value="<%= article._id %>" />
+        <input name="author" placeholder="Author" />
+        <textarea name="text" placeholder="Your comment here"></textarea>
+        <button>Save Article</button>
+    </form>
+<% } %>
+
+<hr />
+
+<h2>New Post</h2>
+<form action="/article" method="post">
+    <input name="title" placeholder="Title" />
+    <input name="author" placeholder="Author" />
+    <textarea name="article" placeholder="Article Text"></textarea>
+    <button>Save Article</button>
+</form>
+
